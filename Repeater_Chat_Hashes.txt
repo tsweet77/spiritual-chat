@@ -1,0 +1,6 @@
+PowerShell Hashes
+
+PS E:\> Get-FileHash .\intention_repeater_chat_2.3.exe | Format-List
+
+Algorithm : SHA256
+Hash      : EABE53722E54E80CE2FE2EFF5E5FA6ABCA58BE1A4DB02DD198B301D79E3389EF
