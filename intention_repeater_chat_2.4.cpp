@@ -33,7 +33,7 @@ int main() {
     int r, num_words_response, random_seed;
     std::string rs = "", query, response, process_query = "", wordval, word_list[SIZE_OF_WORD_LIST], selected_word[THINK_DEPTH]; 
 
-    cout << "Intention Repeater Spiritual Chat Client v2.3 created by Thomas Sweet." << endl;
+    cout << "Intention Repeater Spiritual Chat Client v2.4 created by Thomas Sweet." << endl;
     cout << "This software comes with no guarantees or warranty of any kind and is for entertainment purposes only." << endl;
     cout << "Press Ctrl-C to quit." << endl << endl << flush;
 
