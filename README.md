@@ -3,7 +3,7 @@ Allows you to talk to spiritual beings.
 
 It selects "random" words that the spiritual being can have influence over. It takes some getting used to.
 
-You probably want intention_repeater_chat.cpp and dictionary.txt
+You probably want intention_repeater_chat_2.4.exe and dictionary.txt
 
 Intention Repeater Website: https://www.intentionrepeater.com
 
