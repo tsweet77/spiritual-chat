@@ -9,6 +9,8 @@ MAX_WORDS_RESPONSE = 8
 THINK_DEPTH = 30000
 
 def most_frequent_element(words):
+    if not words:  # Check if the list is empty
+        return "No valid words found"  # Default response or handle as needed
     counter = Counter(words)
     most_common_word, _ = counter.most_common(1)[0]
     return most_common_word
@@ -39,7 +41,7 @@ def pick_word_based_on_hash(hash_value, word_list_size):
     return word_index
 
 if __name__ == "__main__":
-    print("Intention Repeater Spiritual Chat Client v3.0 created by Thomas Sweet.")
+    print("Intention Repeater Spiritual Chat Client v2.5 created by Thomas Sweet.")
     print("This software comes with no guarantees or warranty of any kind and is for entertainment purposes only.")
     print("Press Ctrl-C to quit.\n")
 
@@ -62,9 +64,12 @@ if __name__ == "__main__":
             selected_words = []
             for _ in range(THINK_DEPTH):
                 query3 = query2
-                # Generate a new hashed seed and set it using query2 and current time
+                # Generate a new hashed seed using query2 and current time
                 random_seed = generate_hashed_seed(query2)
 
+                # Use the generated hash as the seed for the random number generator
+                random.seed(random_seed)
+                
                 # Get the word index based on the hash value
                 word_index = pick_word_based_on_hash(random_seed, SIZE_OF_WORD_LIST)
                 
@@ -72,6 +77,7 @@ if __name__ == "__main__":
                 if not word[0].isupper():
                     selected_words.append(word)
 
+            # Check if selected_words is not empty before finding the most frequent element
             wordval = most_frequent_element(selected_words)
             response += wordval + " "
 
