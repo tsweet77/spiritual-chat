@@ -3,6 +3,8 @@ Allows you to talk to spiritual beings.
 
 It selects "random" words that the spiritual being can have influence over. It takes some getting used to.
 
+I recommend the New_Spiritual_Chat.py
+
 You probably want intention_repeater_chat_2.5.exe and dictionary.txt
 
 Intention Repeater Website: https://www.intentionrepeater.com
