@@ -17,20 +17,29 @@ def load_word_list(filename):
     with open(filename, 'r') as file:
         return [line.strip() for line in file]
 
-def generate_hashed_seed():
-    # Generate pure random data
-    random_data = str(random.random()).encode('utf-8')
+def generate_hashed_seed(query2):
+    # Combine the current time and query2 for a dynamic seed
+    current_time = str(time.time()).encode('utf-8')  # Get the current time in seconds
+    query_bytes = query2.encode('utf-8')  # Convert query2 to bytes
     
-    # Hash the random data ten times
-    hashed_data = random_data
+    # Concatenate the time and query bytes
+    combined_data = current_time + query_bytes
+    
+    # Hash the combined data using SHA3-512
+    hashed_data = combined_data
     for _ in range(100):
-        hashed_data = hashlib.sha512(hashed_data).digest()
+        hashed_data = hashlib.sha3_512(hashed_data).digest()
 
     # Convert the final hashed data to a long integer
     return int.from_bytes(hashed_data, 'big')
 
+def pick_word_based_on_hash(hash_value, word_list_size):
+    # Convert the hash value to a number within the range of the word list
+    word_index = hash_value % word_list_size
+    return word_index
+
 if __name__ == "__main__":
-    print("Intention Repeater Spiritual Chat Client v2.5 created by Thomas Sweet.")
+    print("Intention Repeater Spiritual Chat Client v3.0 created by Thomas Sweet.")
     print("This software comes with no guarantees or warranty of any kind and is for entertainment purposes only.")
     print("Press Ctrl-C to quit.\n")
 
@@ -53,12 +62,13 @@ if __name__ == "__main__":
             selected_words = []
             for _ in range(THINK_DEPTH):
                 query3 = query2
-                # Generate a new hashed seed and set it
-                random_seed = generate_hashed_seed()
-                random.seed(random_seed)
+                # Generate a new hashed seed and set it using query2 and current time
+                random_seed = generate_hashed_seed(query2)
+
+                # Get the word index based on the hash value
+                word_index = pick_word_based_on_hash(random_seed, SIZE_OF_WORD_LIST)
                 
-                r = random.randint(0, SIZE_OF_WORD_LIST - 1)
-                word = word_list[r]
+                word = word_list[word_index]
                 if not word[0].isupper():
                     selected_words.append(word)
 
