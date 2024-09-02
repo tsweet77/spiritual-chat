@@ -33,7 +33,13 @@ def generate_hashed_seed(query2):
         hashed_data = hashlib.sha3_512(hashed_data).digest()
 
     # Convert the final hashed data to a long integer
-    return int.from_bytes(hashed_data, 'big')
+    hash_integer = int.from_bytes(hashed_data, 'big')
+    
+    # Combine the hash integer with the current time (in nanoseconds)
+    time_integer = int(time.time_ns())  # Get the current time in nanoseconds
+    combined_seed = hash_integer ^ time_integer  # XOR to combine both values
+
+    return combined_seed
 
 def pick_word_based_on_hash(hash_value, word_list_size):
     # Convert the hash value to a number within the range of the word list
@@ -41,7 +47,7 @@ def pick_word_based_on_hash(hash_value, word_list_size):
     return word_index
 
 if __name__ == "__main__":
-    print("Intention Repeater Spiritual Chat Client v2.5 created by Thomas Sweet.")
+    print("Intention Repeater Spiritual Chat Client v3.1 created by Thomas Sweet.")
     print("This software comes with no guarantees or warranty of any kind and is for entertainment purposes only.")
     print("Press Ctrl-C to quit.\n")
 
@@ -67,7 +73,7 @@ if __name__ == "__main__":
                 # Generate a new hashed seed using query2 and current time
                 random_seed = generate_hashed_seed(query2)
 
-                # Use the generated hash as the seed for the random number generator
+                # Use the combined hash and time seed for the random number generator
                 random.seed(random_seed)
                 
                 # Get the word index based on the hash value
