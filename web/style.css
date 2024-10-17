@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    margin: 0;
+    padding: 0;
+}
+
+#chat-container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 800px;
+    padding-top: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#settings {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+#chat-window {
+    background-color: #2e2e2e;
+    height: 400px;
+    overflow-y: auto; /* Ensure vertical scrollbar appears when needed */
+    overflow-x: hidden; /* Hide horizontal scrollbar if not needed */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.user {
+    color: #00ff00;
+}
+
+.bot {
+    color: #00bfff;
+}
+
+.meaning {
+    color: #ffff00;
+}
+
+#chat-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #d4d4d4;
+}
+
+#chat-form button {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#chat-form button:hover {
+    background-color: #009acd;
+}
+
+#settings-panel {
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#settings-panel form {
+    margin-bottom: 10px;
+}
+
+#settings-panel label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#settings-panel input[type="text"],
+#settings-panel input[type="password"],
+#settings-panel select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+
+#settings-panel button {
+    margin-top: 5px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#settings-panel button:hover {
+    background-color: #009acd;
+}
