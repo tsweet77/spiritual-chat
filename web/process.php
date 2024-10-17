@@ -53,6 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Save selected model in session
         $_SESSION['model'] = $_POST['model'];
         echo json_encode(['status' => 'success']);
+    } elseif ($action === 'save_mood') {
+        // Save selected mood in session
+        $_SESSION['mood'] = $_POST['mood'];
+        echo json_encode(['status' => 'success']);
     } elseif ($action === 'toggle_logging') {
         // Toggle logging
         $_SESSION['logging'] = isset($_POST['logging']) && $_POST['logging'] === 'true';
@@ -84,7 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Get meaning from OpenRouter API
         $model = $_SESSION['model'] ?? 'openai/chatgpt-4o-latest';
-        $meaning = get_meaning($query, $response, $_SESSION['api_key'], $model);
+        $mood = $_SESSION['mood'] ?? 'fun'; // Default to 'fun' if mood not set
+        $meaning = get_meaning($query, $response, $_SESSION['api_key'], $model, $mood);
 
         // Add bot response and meaning to log
         if (isset($_SESSION['logging']) && $_SESSION['logging']) {
@@ -135,9 +140,26 @@ function generate_response($query, $wordlist) {
     return trim($response);
 }
 
-function get_meaning($query, $response, $api_key, $model) {
-    $system_prompt = "You're an expert at taking seemingly random word response generated from a Spiritual Chat software, and a user query and forming a meaning. Do not mention the words are random. Be fun.";
-    $user_prompt = "The user asked '$query' and got the response '$response'. Please give a very brief definition of each word and the meaning of each word and an overall meaning and how it relates to their query.";
+function get_meaning($query, $response, $api_key, $model, $mood) {
+    // Adjust system prompt based on mood
+    $mood_prompts = [
+        'fun' => 'Be fun.',
+        'serious' => 'Be serious.',
+        'thoughtful' => 'Be thoughtful.',
+        'encouraging' => 'Be encouraging.',
+        'mystical' => 'Be mystical.',
+        'humorous' => 'Be humorous.',
+        'inspirational' => 'Be inspirational.',
+        'casual' => 'Be casual.',
+        'formal' => 'Be formal.',
+        'empathic' => 'Be empathic.'
+    ];
+
+    $mood_prompt = $mood_prompts[$mood] ?? 'Be fun.'; // Default to 'Be fun.' if mood not found
+
+    $system_prompt = "You're an expert at taking seemingly random word responses generated from a Spiritual Chat software, and a user query and forming a meaning. Do not mention the words are random. " . $mood_prompt;
+
+    $user_prompt = "The user asked \'$query\' and got the response \'$response\'. Please give a very brief definition of each word and the meaning of each word and an overall meaning and how it relates to their query.";
 
     $post_fields = json_encode([
         "model" => $model,

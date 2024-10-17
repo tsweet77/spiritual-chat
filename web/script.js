@@ -61,6 +61,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Save Mood
+    const moodForm = document.getElementById('mood-form');
+    moodForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const mood = document.getElementById('mood').value;
+
+        fetch('process.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'action=save_mood&mood=' + encodeURIComponent(mood)
+        });
+    });
+
     // Toggle Logging
     const loggingForm = document.getElementById('logging-form');
     loggingForm.addEventListener('submit', function (e) {

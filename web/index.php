@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Define the file path
 $file_path = 'counter.txt';
@@ -18,6 +17,8 @@ $counter++;
 
 // Write the updated counter value back to the file
 file_put_contents($file_path, $counter);
+
+session_start();
 
 // Load wordlist
 $wordlist = file('wordlist.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -61,6 +62,23 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                     </select>
                     <button type="submit">Save</button>
                 </form>
+                <!-- Add Answer Mood Form -->
+                <form id="mood-form">
+                    <label for="mood">Answer Mood:</label>
+                    <select id="mood" name="mood">
+                        <option value="fun">Fun</option>
+                        <option value="serious">Serious</option>
+                        <option value="thoughtful">Thoughtful</option>
+                        <option value="encouraging">Encouraging</option>
+                        <option value="mystical">Mystical</option>
+                        <option value="humorous">Humorous</option>
+                        <option value="inspirational">Inspirational</option>
+                        <option value="casual">Casual</option>
+                        <option value="formal">Formal</option>
+                        <option value="empathic">Empathic</option>
+                    </select>
+                    <button type="submit">Save</button>
+                </form>
                 <form id="logging-form">
                     <label for="logging">Enable Logging:</label>
                     <input type="checkbox" id="logging" name="logging">
@@ -81,7 +99,6 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
     <!-- Include the apiKeySet variable -->
     <script>
         var apiKeySet = <?php echo $apiKeySet ? 'true' : 'false'; ?>;
-        console.log('apiKeySet:', apiKeySet, typeof apiKeySet);
     </script>
     <script src="script.js"></script>
 </body>
