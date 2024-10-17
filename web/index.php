@@ -66,7 +66,7 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                 <form id="mood-form">
                     <label for="mood">Answer Mood:</label>
                     <select id="mood" name="mood">
-                        <option value="fun">Fun</option>
+                        <option value="fun">Fun (May use more emojis)</option>
                         <option value="serious">Serious</option>
                         <option value="thoughtful">Thoughtful</option>
                         <option value="encouraging">Encouraging</option>
