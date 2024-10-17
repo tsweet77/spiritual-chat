@@ -1,14 +1,18 @@
 # spiritual-chat
 Allows you to talk to spiritual beings.
 
+The OR ones use OpenRouter. Requires an OpenRouter API Key stored in OPENROUTER_API_KEY.txt.
+
+The non-OR ones use OpenAI. Require an OpenAI API Key stored in OPENAI_API_KEY.txt.
+
 It selects "random" words that the spiritual being can have influence over.
 
-I recommend Spiritual_Chat.py
+The AI helps connect the meaning of the words with the query asked.
 
 You will need to save your OpenAI API Key in OPENAI_API_KEY.txt
 https://platform.openai.com/api-keys
 
-You probably want intention_repeater_chat_2.5.exe and dictionary.txt
+Requires the wordlist.txt.
 
 Intention Repeater Website: https://www.intentionrepeater.com
 
