@@ -172,8 +172,8 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
     $headers = [
         "Authorization: Bearer $api_key",
         "Content-Type: application/json",
-        "HTTP-Referer: https://intentionrepeater.boards.net/thread/977/updated-spiritual-chat",
-        "X-Title: Spiritual Chat"
+        "HTTP-Referer: https://spiritualchat.intentionrepeater.com/",
+        "X-Title: Spiritual Chat WebApp"
     ];
 
     $ch = curl_init('https://openrouter.ai/api/v1/chat/completions');
