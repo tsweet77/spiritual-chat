@@ -16,7 +16,7 @@ https://platform.openai.com/api-keys
 Requires the wordlist.txt.
 
 Put the name of a log file (i.e. log.txt) after calling the Python program to log to a file.
-Example: 
+Example: python 4o-OR_Refined_Spiritual_Chat.py log.txt
 
 Intention Repeater Website: https://www.intentionrepeater.com
 
