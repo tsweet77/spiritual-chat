@@ -9,3 +9,4 @@ New C++ Versions:
 10/24/2020 v2.0 Updated to use a Vector instead of an Array, to allow for faster sorting. Now, THINK_DEPTH = 100000. Put defined variables at the top.
 10/25/2020 v2.2 Fixed bugs with how it clears the array each run. Undid the Vector because it was causing problems. Allows THINK_DEPTH = 30,000 or more. Added important values in easy to read manner toward the beginning.
 10/13/2024 v4.0 Used hashing to prevent negative entities from trolling. Added gpt-4o-mini support using OpenAI API Key to describe the meaning of the words.
+10/17/2024 v4.5 Created GUI.
