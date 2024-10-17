@@ -152,7 +152,9 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
         'inspirational' => 'Be inspirational.',
         'casual' => 'Be casual.',
         'formal' => 'Be formal.',
-        'empathic' => 'Be empathic.'
+        'empathic' => 'Be empathic.',
+        'introspective' => 'Be introspective.',
+        'funny' => 'Be funny.'
     ];
 
     $mood_prompt = $mood_prompts[$mood] ?? 'Be fun.'; // Default to 'Be fun.' if mood not found

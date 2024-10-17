@@ -76,6 +76,8 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="casual">Casual</option>
                         <option value="formal">Formal</option>
                         <option value="empathic">Empathic</option>
+                        <option value="introspective">Introspective</option>
+                        <option value="funny">Funny</option>
                     </select>
                     <button type="submit">Save</button>
                 </form>
