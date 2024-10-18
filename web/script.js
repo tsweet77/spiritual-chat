@@ -86,8 +86,11 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         const logging = document.getElementById('logging').checked;
 
-        showPopupMessage('Logging Enabled');
+        // Determine the message based on the checkbox state
+        const message = logging ? 'Logging Enabled' : 'Logging Disabled';
+        showPopupMessage(message);
 
+        // Send the state to process.php
         fetch('process.php', {
             method: 'POST',
             headers: {
