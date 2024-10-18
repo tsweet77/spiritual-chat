@@ -7,7 +7,7 @@ Demo: https://spiritualchat.intentionrepeater.com/
 
 Instructional Video: https://www.youtube.com/watch?v=I5v1IWRz65k
 
-Requires an OpenRouter API Key stored in OPENROUTER_API_KEY.txt.
+Python Requires an OpenRouter API Key stored in OPENROUTER_API_KEY.txt.
 https://www.openrouter.ai
 
 It selects "random" words that the spiritual being can have influence over.
