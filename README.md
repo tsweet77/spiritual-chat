@@ -1,6 +1,12 @@
 # spiritual-chat
 Allows you to talk to spiritual beings.
 
+The Spiritual Chat Web App is the most up to date, in the web folder.
+
+Demo: https://spiritualchat.intentionrepeater.com/
+
+Instructional Video: https://www.youtube.com/watch?v=I5v1IWRz65k
+
 Requires an OpenRouter API Key stored in OPENROUTER_API_KEY.txt.
 https://www.openrouter.ai
 
