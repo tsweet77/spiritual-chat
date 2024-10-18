@@ -35,10 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
             // Update apiKeySet based on whether the API key is empty
             if (apiKey !== '') {
                 apiKeySet = true;
-                alert('API Key saved successfully.');
+                showPopupMessage('API Key Set');
             } else {
                 apiKeySet = false;
-                alert('API Key cleared.');
+                showPopupMessage('API Key Cleared');
             }
         })
         .catch(error => {
@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
     modelForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const model = document.getElementById('model').value;
+
+        showPopupMessage(model + ' Model Selected');
 
         fetch('process.php', {
             method: 'POST',
@@ -67,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         const mood = document.getElementById('mood').value;
 
+        showPopupMessage(mood + ' Mood Selected');
+
         fetch('process.php', {
             method: 'POST',
             headers: {
@@ -81,6 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
     loggingForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const logging = document.getElementById('logging').checked;
+
+        showPopupMessage('Logging Enabled');
 
         fetch('process.php', {
             method: 'POST',
@@ -107,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: 'action=clear_log'
         }).then(() => {
-            alert('Log cleared.');
+            showPopupMessage('Log Cleared');
         });
     });
 
@@ -209,5 +215,21 @@ document.addEventListener('DOMContentLoaded', function () {
             dotCount = (dotCount % maxDots) + 1;
             dotsElement.textContent = '.'.repeat(dotCount);
         }, 500);
+    }
+
+    function showPopupMessage(message) {
+        const popup = document.createElement('div');
+        popup.className = 'popup-message';
+        popup.textContent = message;
+        document.body.appendChild(popup);
+    
+        // Show popup with fade-in
+        setTimeout(() => popup.style.opacity = '1', 10);
+    
+        // Remove popup after 4 seconds (1 second fade-in, 2 seconds display, 1 second fade-out)
+        setTimeout(() => {
+            popup.style.opacity = '0';
+            setTimeout(() => popup.remove(), 1000);
+        }, 3000);
     }
 });

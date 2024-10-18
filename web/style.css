@@ -61,6 +61,20 @@ h1 {
     color: #d4d4d4;
 }
 
+.popup-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2e2e2e;
+    color: #d4d4d4;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 1000;
+}
+
 #chat-form button {
     padding: 10px;
     margin-left: 10px;

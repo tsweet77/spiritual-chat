@@ -143,6 +143,7 @@ function generate_response($query, $wordlist) {
 function get_meaning($query, $response, $api_key, $model, $mood) {
     // Adjust system prompt based on mood
     $mood_prompts = [
+        'neutral' => '',
         'fun' => 'Be fun.',
         'serious' => 'Be serious.',
         'thoughtful' => 'Be thoughtful.',
@@ -157,7 +158,7 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
         'funny' => 'Be funny.'
     ];
 
-    $mood_prompt = $mood_prompts[$mood] ?? 'Be fun.'; // Default to 'Be fun.' if mood not found
+    $mood_prompt = $mood_prompts[$mood] ?? ''; // Default to '' neutral if mood not found
 
     $system_prompt = "You're an expert at taking seemingly random word responses generated from a Spiritual Chat software, and a user query and forming a meaning. Do not mention the words are random. " . $mood_prompt;
 

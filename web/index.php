@@ -47,7 +47,7 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                 <form id="api-key-form">
                     <label for="api-key">OpenRouter API Key:</label>
                     <input type="password" id="api-key" name="api-key" required>
-                    <button type="submit">Save</button>
+                    <button type="submit" id="save-api-key">Save</button>
                 </form>
                 <form id="model-form">
                     <label for="model">Select Model:</label>
@@ -60,12 +60,13 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="x-ai/grok-2">x-ai/grok-2</option>
                         <option value="nvidia/llama-3.1-nemotron-70b-instruct">nvidia/llama-3.1-nemotron-70b-instruct</option>
                     </select>
-                    <button type="submit">Save</button>
+                    <button type="submit" id="save-model">Save</button>
                 </form>
                 <!-- Add Answer Mood Form -->
                 <form id="mood-form">
                     <label for="mood">Answer Mood:</label>
                     <select id="mood" name="mood">
+                        <option value="neutral">Neutral</option>
                         <option value="fun">Fun (May use more emojis)</option>
                         <option value="serious">Serious</option>
                         <option value="thoughtful">Thoughtful</option>
@@ -79,7 +80,7 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="introspective">Introspective</option>
                         <option value="funny">Funny</option>
                     </select>
-                    <button type="submit">Save</button>
+                    <button type="submit" id="save-mood">Save</button>
                 </form>
                 <form id="logging-form">
                     <label for="logging">Enable Logging:</label>
