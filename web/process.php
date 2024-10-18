@@ -177,7 +177,8 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
         "Authorization: Bearer $api_key",
         "Content-Type: application/json",
         "HTTP-Referer: https://spiritualchat.intentionrepeater.com/",
-        "X-Title: Spiritual Chat WebApp"
+        "X-Title: Spiritual Chat WebApp",
+        "X-Description: Connect with spiritual entities, guides, and higher energies using AI interpretations."
     ];
 
     $ch = curl_init('https://openrouter.ai/api/v1/chat/completions');
