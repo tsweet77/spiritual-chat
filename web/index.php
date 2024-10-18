@@ -109,6 +109,7 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                 </form>
                 <button id="download-log">Download Log</button>
                 <button id="clear-log">Clear Log</button>
+                <button id="save-settings-button">Save Settings as Cookie</button>
             </div>
         </div>
         <div id="chat-window">

@@ -235,4 +235,61 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => popup.remove(), 1000);
         }, 3000);
     }
+
+    function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=None; Secure`;
+    }
+    
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) {
+            return decodeURIComponent(parts.pop().split(';').shift());
+        }
+        return null;
+    }
+
+    function saveSettings() {
+        const model = document.getElementById('model').value; // Adjust based on your actual setting IDs
+        const api_key = document.getElementById('api-key').value; // Adjust based on your actual setting IDs
+        const mood = document.getElementById('mood').value; // Adjust based on your actual setting IDs
+        const logging = document.getElementById('logging').checked; // Store as a boolean
+        // Repeat for all relevant settings
+        setCookie('spiritual_chat_model', model, 365);
+        setCookie('spiritual_chat_api_key', api_key, 365);
+        setCookie('spiritual_chat_mood', mood, 365);
+        setCookie('spiritual_chat_logging', logging, 365);
+        // Repeat for all relevant settings
+    
+        showPopupMessage('Settings Saved in Cookie!');
+    }
+
+    const saveSettingsButton = document.getElementById('save-settings-button');
+    saveSettingsButton.addEventListener('click', function () {
+        saveSettings();
+    });
+
+    function loadSettings() {
+        const model = getCookie('spiritual_chat_model');
+        const api_key = getCookie('spiritual_chat_api_key');
+        const mood = getCookie('spiritual_chat_mood');
+        const logging = getCookie('spiritual_chat_logging');
+
+        // Repeat for all relevant settings
+    
+        if (model) document.getElementById('model').value = model;
+        if (api_key) document.getElementById('api-key').value = api_key;
+        if (mood) document.getElementById('mood').value = mood;
+        // For the checkbox, convert the string to a boolean value
+        if (logging) {
+            document.getElementById('logging').checked = logging === 'true';
+        }
+        // Repeat for all relevant settings
+    }
+
+    document.addEventListener('DOMContentLoaded', loadSettings);
+    
+    window.onload = loadSettings; // Load settings when the page loads
+    
 });
