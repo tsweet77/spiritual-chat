@@ -22,6 +22,19 @@ h1 {
     margin-bottom: 10px;
 }
 
+.bright-cyan {
+    color: #00FFFF; /* Cyan */
+    text-decoration: none; /* Remove underline if desired */
+}
+
+.bright-cyan:visited {
+    color: #00FFFF; /* Ensures the link stays cyan after being clicked */
+}
+
+.bright-cyan:hover {
+    color: #00CED1; /* Optional: Changes color slightly when hovered */
+}
+
 #chat-window {
     background-color: #2e2e2e;
     height: 400px;

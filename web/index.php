@@ -1,22 +1,29 @@
 <?php
 
 // Define the file path
-$file_path = 'counter.txt';
+$filename = 'counter.txt';
 
 // Check if the file exists
-if (file_exists($file_path)) {
-    // Read the current counter value from the file
-    $counter = (int) file_get_contents($file_path);
+if (!file_exists($filename)) {
+    // If the file does not exist, create it and initialize the count to 1
+    $count = 1;
+    file_put_contents($filename, $count);
 } else {
-    // If the file does not exist, initialize the counter to 0
-    $counter = 0;
+    // Open the file in read/write mode
+    $file = fopen($filename, 'c+');
+    if (flock($file, LOCK_EX)) {
+        // Lock the file for writing
+        $count = (int) fread($file, filesize($filename));
+        $count++;
+        // Move the file pointer back to the beginning before writing
+        ftruncate($file, 0);
+        rewind($file);
+        fwrite($file, $count);
+        fflush($file);
+        flock($file, LOCK_UN); // Release the lock
+    }
+    fclose($file);
 }
-
-// Increment the counter by one
-$counter++;
-
-// Write the updated counter value back to the file
-file_put_contents($file_path, $counter);
 
 session_start();
 
@@ -45,7 +52,7 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
             <button id="settings-button">Settings</button>
             <div id="settings-panel" style="display: none;">
                 <form id="api-key-form">
-                    <label for="api-key">OpenRouter API Key:</label>
+                    <label for="api-key">OpenRouter API Key (<a href='https://openrouter.ai/' target='_blank' class='bright-cyan'>Get API Key</a>):</label>
                     <input type="password" id="api-key" name="api-key" required>
                     <button type="submit" id="save-api-key">Save</button>
                 </form>
@@ -59,6 +66,9 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="anthropic/claude-3.5-sonnet:beta">anthropic/claude-3.5-sonnet:beta</option>
                         <option value="x-ai/grok-2">x-ai/grok-2</option>
                         <option value="nvidia/llama-3.1-nemotron-70b-instruct">nvidia/llama-3.1-nemotron-70b-instruct</option>
+                        <option value="meta-llama/llama-3.1-405b-instruct">meta-llama/llama-3.1-405b-instruct</option>
+                        <option value="meta-llama/llama-3.1-70b-instruct">meta-llama/llama-3.1-70b-instruct</option>
+                        <option value="meta-llama/llama-3.1-8b-instruct">meta-llama/llama-3.1-8b-instruct</option>
                     </select>
                     <button type="submit" id="save-model">Save</button>
                 </form>
@@ -79,6 +89,7 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="empathic">Empathic</option>
                         <option value="introspective">Introspective</option>
                         <option value="funny">Funny</option>
+                        <option value="whimsical">Whimsical</option>
                     </select>
                     <button type="submit" id="save-mood">Save</button>
                 </form>
