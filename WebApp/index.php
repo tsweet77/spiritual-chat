@@ -88,7 +88,6 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="neutral">Neutral</option>
                         <option value="fun">Fun (May use some emojis)</option>
                         <option value="casual">Casual</option>
-                        <option value="humorous">Humorous</option>
                         <option value="funny">Funny</option>
                         <option value="thoughtful">Thoughtful</option>
                         <option value="introspective">Introspective</option>

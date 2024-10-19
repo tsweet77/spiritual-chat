@@ -171,7 +171,6 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
         'neutral' => '',
         'fun' => 'Be fun (with some emojis).',
         'casual' => 'Be casual.',
-        'humorous' => 'Be humorous.',
         'funny' => 'Be funny.',
         'thoughtful' => 'Be thoughtful.',
         'introspective' => 'Be introspective.',
