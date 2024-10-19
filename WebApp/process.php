@@ -109,6 +109,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 function generate_response($query, $wordlist) {
+    // Define the file path
+    $filename = 'numqueries.txt';
+
+    // Check if the file exists
+    if (!file_exists($filename)) {
+        // If the file does not exist, create it and initialize the count to 1
+        $count = 1;
+        file_put_contents($filename, $count);
+    } else {
+        // Open the file in read/write mode
+        $file = fopen($filename, 'c+');
+        if (flock($file, LOCK_EX)) {
+            // Lock the file for writing
+            $count = (int) fread($file, filesize($filename));
+            $count++;
+            // Move the file pointer back to the beginning before writing
+            ftruncate($file, 0);
+            rewind($file);
+            fwrite($file, $count);
+            fflush($file);
+            flock($file, LOCK_UN); // Release the lock
+        }
+        fclose($file);
+    }
+
     $response = "";
 
     // Step 4: Compute initial hash_value

@@ -63,23 +63,20 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                     <label for="model">Select Model:</label>
                     <select id="model" name="model" style="padding: 5px; flex: 1;">
                         <option value="openai/chatgpt-4o-latest">openai/chatgpt-4o-latest - (~$0.005/query)</option>
+                        <option value="anthropic/claude-3.5-sonnet:beta">anthropic/claude-3.5-sonnet:beta - (~$0.003/query)</option>
+                        <option value="mistralai/mistral-large">mistralai/mistral-large - (~$0.0042/query) (#1 Uncensored)</option>
+                        <option value="x-ai/grok-2">x-ai/grok-2 - (~$0.0028/query) (#2 Uncensored)</option>
+                        <option value="cognitivecomputations/dolphin-mixtral-8x22b">cognitivecomputations/dolphin-mixtral-8x22b - (~$0.00054/query) (#3 Uncensored)</option>
+                        <option value="cognitivecomputations/dolphin-mixtral-8x7b">cognitivecomputations/dolphin-mixtral-8x7b - (~$0.00022/query) (#4 Uncensored)</option>
                         <option value="openai/o1-preview">openai/o1-preview - (~$0.11/query)</option>
                         <option value="openai/o1-mini">openai/o1-mini - (~$0.014/query)</option>
-                        <option value="anthropic/claude-3.5-sonnet:beta">anthropic/claude-3.5-sonnet:beta - (~$0.003/query)</option>
-                        <option value="x-ai/grok-2">x-ai/grok-2 - (~$0.0028/query) (Uncensored)</option>
                         <option value="openai/gpt-4o-mini">openai/gpt-4o-mini - (~$0.0002/query)</option>
-                        <option value="mistralai/mistral-large">mistralai/mistral-large - (~$0.0042/query) (Uncensored)</option>
                         <option value="mistralai/mixtral-8x22b-instruct">mistralai/mixtral-8x22b-instruct - (~$0.00063/query)</option>
                         <option value="mistralai/mixtral-8x7b-instruct">mistralai/mixtral-8x7b-instruct - (~$0.00028/query)</option>
-                        <option value="cognitivecomputations/dolphin-mixtral-8x22b">cognitivecomputations/dolphin-mixtral-8x22b - (~$0.00054/query) (Uncensored)</option>
-                        <option value="cognitivecomputations/dolphin-mixtral-8x7b">cognitivecomputations/dolphin-mixtral-8x7b - (~$0.00022/query) (Uncensored)</option>
                         <option value="meta-llama/llama-3.1-405b-instruct">meta-llama/llama-3.1-405b-instruct - (~$0.0009/query)</option>
                         <option value="meta-llama/llama-3.1-70b-instruct">meta-llama/llama-3.1-70b-instruct - (~$0.00035/query)</option>
                         <option value="nvidia/llama-3.1-nemotron-70b-instruct">nvidia/llama-3.1-nemotron-70b-instruct - (~$0.00023/query)</option>
-                        <option value="meta-llama/llama-3.1-8b-instruct">meta-llama/llama-3.1-8b-instruct - (~$0.000038/query)</option>
                         <option value="mistralai/mistral-medium">mistralai/mistral-medium - (~$0.00022/query)</option>
-                        <option value="mistralai/mistral-small">mistralai/mistral-small - (~$0.00013/query)</option>
-                        <option value="mistralai/mistral-tiny">mistralai/mistral-tiny - (~$0.00013/query)</option>
                     </select>
                     <button type="submit" id="save-model">Save</button>
                 </form>
@@ -90,17 +87,20 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                     <select id="mood" name="mood" style="padding: 5px; flex: 1;">
                         <option value="neutral">Neutral</option>
                         <option value="fun">Fun (May use more emojis)</option>
-                        <option value="serious">Serious</option>
-                        <option value="thoughtful">Thoughtful</option>
-                        <option value="encouraging">Encouraging</option>
-                        <option value="mystical">Mystical</option>
-                        <option value="humorous">Humorous</option>
-                        <option value="inspirational">Inspirational</option>
                         <option value="casual">Casual</option>
-                        <option value="formal">Formal</option>
-                        <option value="empathic">Empathic</option>
-                        <option value="introspective">Introspective</option>
+                        <option value="humorous">Humorous</option>
                         <option value="funny">Funny</option>
+                        <option value="thoughtful">Thoughtful</option>
+                        <option value="introspective">Introspective</option>
+                        <option value="empathic">Empathic</option>
+                        <option value="encouraging">Encouraging</option>
+                        <option value="inspirational">Inspirational</option>
+                        <option value="serious">Serious</option>
+                        <option value="formal">Formal</option>
+                        <option value="mystical">Mystical</option>
+                        <option value="calming">Calming</option>
+                        <option value="direct">Direct</option>
+                        <option value="playful">Playful</option>
                         <option value="whimsical">Whimsical</option>
                     </select>
                     <button type="submit" id="save-mood">Save</button>
