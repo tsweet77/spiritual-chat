@@ -101,7 +101,7 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="calming">Calming</option>
                         <option value="direct">Direct</option>
                         <option value="playful">Playful</option>
-                        <option value="whimsical">Whimsical</option>
+                        <option value="whimsical">Whimsical (May use some emojis)</option>
                     </select>
                     <button type="submit" id="save-mood">Save</button>
                 </form>
