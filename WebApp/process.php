@@ -184,7 +184,7 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
         'calming' => 'Be calming.',
         'direct' => 'Be direct.',
         'playful' => 'Be playful.',
-        'whimsical' => 'Be whimsical.'
+        'whimsical' => 'Be whimsical (with some emojis).'
     ];
 
     $mood_prompt = $mood_prompts[$mood] ?? ''; // Default to '' neutral if mood not found
