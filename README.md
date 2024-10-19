@@ -1,7 +1,7 @@
 # spiritual-chat
 Allows you to talk to spiritual beings.
 
-The Spiritual Chat Web App is the most up to date, in the web folder.
+The Spiritual Chat Web App is the most up to date, in the WebApp folder.
 
 Demo: https://spiritualchat.intentionrepeater.com/
 

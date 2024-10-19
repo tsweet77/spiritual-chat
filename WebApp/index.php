@@ -51,21 +51,24 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
         <div id="settings">
             <button id="settings-button">Settings</button>
             <div id="settings-panel" style="display: none;">
-                <form id="api-key-form">
-                    <label for="api-key">OpenRouter API Key (<a href='https://openrouter.ai/' target='_blank' class='bright-cyan'>Get API Key</a>):</label>
-                    <input type="password" id="api-key" name="api-key" required>
+                <form id="api-key-form" style="display: flex; align-items: center; gap: 10px;">
+                    <label for="api-key">
+                        OpenRouter API Key (<a href="https://openrouter.ai/" target="_blank" class="bright-cyan">Get API Key</a>):
+                    </label>
+                    <input type="password" id="api-key" name="api-key" required style="flex: 1; padding: 5px;">
                     <button type="submit" id="save-api-key">Save</button>
                 </form>
-                <form id="model-form">
+
+                <form id="model-form" style="display: flex; align-items: center; gap: 10px;">
                     <label for="model">Select Model:</label>
-                    <select id="model" name="model" style="width: 100%; padding: 5px;">
+                    <select id="model" name="model" style="padding: 5px; flex: 1;">
                         <option value="openai/chatgpt-4o-latest">openai/chatgpt-4o-latest - (~$0.005/query)</option>
                         <option value="openai/o1-preview">openai/o1-preview - (~$0.11/query)</option>
                         <option value="openai/o1-mini">openai/o1-mini - (~$0.014/query)</option>
                         <option value="anthropic/claude-3.5-sonnet:beta">anthropic/claude-3.5-sonnet:beta - (~$0.003/query)</option>
-                        <option value="x-ai/grok-2">x-ai/grok-2 - (~$0.0028/query)</option>
+                        <option value="x-ai/grok-2">x-ai/grok-2 - (~$0.0028/query) (Uncensored)</option>
                         <option value="openai/gpt-4o-mini">openai/gpt-4o-mini - (~$0.0002/query)</option>
-                        <option value="mistralai/mistral-large">mistralai/mistral-large - (~$0.0042/query)</option>
+                        <option value="mistralai/mistral-large">mistralai/mistral-large - (~$0.0042/query) (Uncensored)</option>
                         <option value="mistralai/mixtral-8x22b-instruct">mistralai/mixtral-8x22b-instruct - (~$0.00063/query)</option>
                         <option value="mistralai/mixtral-8x7b-instruct">mistralai/mixtral-8x7b-instruct - (~$0.00028/query)</option>
                         <option value="cognitivecomputations/dolphin-mixtral-8x22b">cognitivecomputations/dolphin-mixtral-8x22b - (~$0.00054/query) (Uncensored)</option>
@@ -78,13 +81,13 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="mistralai/mistral-small">mistralai/mistral-small - (~$0.00013/query)</option>
                         <option value="mistralai/mistral-tiny">mistralai/mistral-tiny - (~$0.00013/query)</option>
                     </select>
-
                     <button type="submit" id="save-model">Save</button>
                 </form>
+
                 <!-- Add Answer Mood Form -->
-                <form id="mood-form">
+                <form id="mood-form" style="display: flex; align-items: center; gap: 10px;">
                     <label for="mood">Answer Mood:</label>
-                    <select id="mood" name="mood">
+                    <select id="mood" name="mood" style="padding: 5px; flex: 1;">
                         <option value="neutral">Neutral</option>
                         <option value="fun">Fun (May use more emojis)</option>
                         <option value="serious">Serious</option>
@@ -102,14 +105,30 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                     </select>
                     <button type="submit" id="save-mood">Save</button>
                 </form>
-                <form id="logging-form">
+
+                <form id="logging-form" style="display: flex; align-items: center; gap: 10px;">
                     <label for="logging">Enable Logging:</label>
-                    <input type="checkbox" id="logging" name="logging">
+                    <input type="checkbox" id="logging" name="logging" style="margin: 0;">
                     <button type="submit">Save</button>
                 </form>
-                <button id="download-log">Download Log</button>
-                <button id="clear-log">Clear Log</button>
-                <button id="save-settings-button">Save Settings as Cookie</button>
+
+                <table padding="5">
+                    <tr>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <div style="display: flex; align-items: center; font-size: 0.9em; color: #666; text-align: center; margin-top: 10px;">
+                                <img src="cookie_icon.png" alt="Cookie icon" style="width: 24px; height: 24px; margin-right: 8px;" />
+                                <span>This website uses cookies to save your settings. Click "Save Settings as Cookie" if you agree to store your preferences as a cookie.</span>
+                                <br><img src="lock_icon.png" alt="Lock icon" style="width: 24px; height: 24px; margin-right: 8px;" />
+                                <span>Our chat logging system uses temporary variables and does not store chat data as files on our server. Your chat sessions are handled securely during processing, but they are not saved or retained afterward. Additionally, your API key is never recorded or stored on our server, ensuring that both your chats and API key remain private and are not monitored by us.</span>
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button id="download-log">Download Log</button>
+                            <button id="clear-log">Clear Log</button>
+                            <button id="save-settings-button">Save Settings as Cookie</button>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div id="chat-window">
