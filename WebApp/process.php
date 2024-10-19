@@ -169,19 +169,22 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
     // Adjust system prompt based on mood
     $mood_prompts = [
         'neutral' => '',
-        'fun' => 'Be fun.',
-        'serious' => 'Be serious.',
-        'thoughtful' => 'Be thoughtful.',
-        'encouraging' => 'Be encouraging.',
-        'mystical' => 'Be mystical.',
-        'humorous' => 'Be humorous.',
-        'inspirational' => 'Be inspirational.',
+        'fun' => 'Be fun (with emojis).',
         'casual' => 'Be casual.',
-        'formal' => 'Be formal.',
-        'empathic' => 'Be empathic.',
-        'introspective' => 'Be introspective.',
+        'humorous' => 'Be humorous.',
         'funny' => 'Be funny.',
-        'whimsical' => 'Be whimsical'
+        'thoughtful' => 'Be thoughtful.',
+        'introspective' => 'Be introspective.',
+        'empathic' => 'Be empathic.',
+        'encouraging' => 'Be encouraging.',
+        'inspirational' => 'Be inspirational.',
+        'serious' => 'Be serious.',
+        'formal' => 'Be formal.',
+        'mystical' => 'Be mystical.',
+        'calming' => 'Be calming.',
+        'direct' => 'Be direct.',
+        'playful' => 'Be playful.',
+        'whimsical' => 'Be whimsical.'
     ];
 
     $mood_prompt = $mood_prompts[$mood] ?? ''; // Default to '' neutral if mood not found
