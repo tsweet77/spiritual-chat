@@ -169,7 +169,7 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
     // Adjust system prompt based on mood
     $mood_prompts = [
         'neutral' => '',
-        'fun' => 'Be fun (with emojis).',
+        'fun' => 'Be fun (with some emojis).',
         'casual' => 'Be casual.',
         'humorous' => 'Be humorous.',
         'funny' => 'Be funny.',
@@ -183,7 +183,7 @@ function get_meaning($query, $response, $api_key, $model, $mood) {
         'mystical' => 'Be mystical.',
         'calming' => 'Be calming.',
         'direct' => 'Be direct.',
-        'playful' => 'Be playful.',
+        'playful' => 'Be playful (with some emojis).',
         'whimsical' => 'Be whimsical (with some emojis).'
     ];
 
