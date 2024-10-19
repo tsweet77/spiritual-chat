@@ -15,6 +15,11 @@ body {
 
 h1 {
     text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.5rem; /* Adjust the size as needed */
+    font-weight: 700; /* Bold to give it more presence */
+    color: #b0b0b0; /* Light grey color */
+    margin-bottom: 20px;
 }
 
 #settings {

@@ -44,6 +44,7 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
     <meta charset="UTF-8">
     <title>Spiritual Chat Web App</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="chat-container">
@@ -109,6 +110,10 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                     <label for="logging">Enable Logging:</label>
                     <input type="checkbox" id="logging" name="logging" style="margin: 0;">
                     <button type="submit">Save</button>
+                    <button id="download-log">Download Log</button>
+                    <button id="clear-log">Clear Log</button>
+                    <button id="save-settings-button">Save Settings as Cookie</button>
+                    <a href="#" id="submitFeedbackButton" class="bright-cyan">Submit Feedback</a>
                 </form>
 
                 <table padding="5">
@@ -120,11 +125,6 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                                 <br><img src="lock_icon.png" alt="Lock icon" style="width: 24px; height: 24px; margin-right: 8px;" />
                                 <span>Our chat logging system uses temporary variables and does not store chat data as files on our server. Your chat sessions are handled securely during processing, but they are not saved or retained afterward. Additionally, your API key is never recorded or stored on our server, ensuring that both your chats and API key remain private and are not monitored by us.</span>
                             </div>
-                        </td>
-                        <td style="text-align: center; vertical-align: middle;">
-                            <button id="download-log">Download Log</button>
-                            <button id="clear-log">Clear Log</button>
-                            <button id="save-settings-button">Save Settings as Cookie</button>
                         </td>
                     </tr>
                 </table>

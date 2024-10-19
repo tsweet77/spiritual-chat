@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const userInput = document.getElementById('user-input');
     const chatWindow = document.getElementById('chat-window');
 
+    const email = 'healing' + '@' + 'intentionrepeater.com';
+
     // Ensure apiKeySet is a Boolean
     apiKeySet = !!apiKeySet;
 
@@ -289,6 +291,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     document.addEventListener('DOMContentLoaded', loadSettings);
+
+     // Obfuscate email to protect against scrapers
+     document.getElementById('submitFeedbackButton').addEventListener('click', function() {
+        const subject = encodeURIComponent('Spiritual Chat Feedback');
+        const mailtoLink = `mailto:${email}?subject=${subject}`;
+        window.location.href = mailtoLink;
+    });
     
     window.onload = loadSettings; // Load settings when the page loads
     
