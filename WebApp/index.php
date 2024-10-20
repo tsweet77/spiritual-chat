@@ -67,8 +67,9 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="anthropic/claude-3.5-sonnet:beta">anthropic/claude-3.5-sonnet:beta - (~$0.003/query)</option>
                         <option value="mistralai/mistral-large">mistralai/mistral-large - (~$0.0042/query) (#1 Uncensored)</option>
                         <option value="x-ai/grok-2">x-ai/grok-2 - (~$0.0028/query) (#2 Uncensored)</option>
-                        <option value="cognitivecomputations/dolphin-mixtral-8x22b">cognitivecomputations/dolphin-mixtral-8x22b - (~$0.00054/query) (#3 Uncensored)</option>
-                        <option value="cognitivecomputations/dolphin-mixtral-8x7b">cognitivecomputations/dolphin-mixtral-8x7b - (~$0.00022/query) (#4 Uncensored)</option>
+                        <option value="nvidia/llama-3.1-nemotron-70b-instruct">nvidia/llama-3.1-nemotron-70b-instruct - (~$0.00023/query) (#3 Uncensored)</option>
+                        <option value="cognitivecomputations/dolphin-mixtral-8x22b">cognitivecomputations/dolphin-mixtral-8x22b - (~$0.00054/query) (#4 Uncensored)</option>
+                        <option value="cognitivecomputations/dolphin-mixtral-8x7b">cognitivecomputations/dolphin-mixtral-8x7b - (~$0.00022/query) (#5 Uncensored)</option>
                         <option value="openai/o1-preview">openai/o1-preview - (~$0.11/query)</option>
                         <option value="openai/o1-mini">openai/o1-mini - (~$0.014/query)</option>
                         <option value="openai/gpt-4o-mini">openai/gpt-4o-mini - (~$0.0002/query)</option>
@@ -76,7 +77,6 @@ $apiKeySet = isset($_SESSION['api_key']) && !empty($_SESSION['api_key']);
                         <option value="mistralai/mixtral-8x7b-instruct">mistralai/mixtral-8x7b-instruct - (~$0.00028/query)</option>
                         <option value="meta-llama/llama-3.1-405b-instruct">meta-llama/llama-3.1-405b-instruct - (~$0.0009/query)</option>
                         <option value="meta-llama/llama-3.1-70b-instruct">meta-llama/llama-3.1-70b-instruct - (~$0.00035/query)</option>
-                        <option value="nvidia/llama-3.1-nemotron-70b-instruct">nvidia/llama-3.1-nemotron-70b-instruct - (~$0.00023/query)</option>
                         <option value="mistralai/mistral-medium">mistralai/mistral-medium - (~$0.00022/query)</option>
                     </select>
                     <button type="submit" id="save-model">Save</button>
